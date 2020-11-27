@@ -26,7 +26,8 @@ autoVARMA <- function(phi,theta,phiseas,thetaseas,sigma,season,grid=1000,maxlag)
   #	Purpose: computes autocovariances of SVARMA usng frequency domain
   #	Background: function computes autocovariances of SVARMA (p,q,ps,qs) from lag zero
   #		to maxlag, with array inputs phi and theta.  VARMA equation:
-  #	(1 - phi[1]B ... - phi[p]B^p) X_t = (1 + theta[1]B ...+ theta[q]B^q) WN_t
+  #	(1 - phi[1]B ... - phi[p]B^p) (1 - Phi[1]B^s ... - Phi[ps]B^{s*ps}) X_t =
+  #    (1 + theta[1]B ... + theta[q]B^q) (1 + Theta[1]B^s ... + Theta[qs]B^{s*qs}) WN_t.
   #	Note: for absent VAR or VMA portions, pass in NULL
   #	Inputs:
   #		phi: array of dimension m x m x p of VAR coefficients, e.g.,
