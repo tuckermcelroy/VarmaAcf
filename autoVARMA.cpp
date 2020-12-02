@@ -173,9 +173,9 @@ arma::cube auto_VARMA(arma::mat param,int p,int q,int ps,int qs,int season,int g
   //
   //	Purpose: computes autocovariances of SVARMA usng frequency domain
   //	Background: function computes autocovariances of SVARMA (p,q,ps,qs) from lag zero
-  //		to maxlag, with array inputs phi and theta.  VARMA equation:
-  //	(1 - phi[1]B ... - phi[p]B^p) X_t = (1 + theta[1]B ...+ theta[q]B^q) WN_t
-  //	Note: for absent VAR or VMA portions, pass in NULL
+  //		to maxlag, with array inputs phi and theta.  SVARMA equation:
+  //	(1 - phi[1]B ... - phi[p]B^p) (1 - Phi[1]B^s ... - Phi[ps]B^{s*ps}) X_t =
+  //    (1 + theta[1]B ... + theta[q]B^q) (1 + Theta[1]B^s ... + Theta[qs]B^{s*qs}) WN_t.
   //	Inputs:
   //    param: matrix of dimension m x (p+q+ps+qs+1), 
   //        equals [ phi | theta | phiseas | thetaseas | sigma ]
