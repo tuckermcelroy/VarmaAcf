@@ -5,7 +5,7 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-arma::cube polymul_mat(arma::cube amat,arma::cube bmat)
+arma::cube polymul_matt(arma::cube amat,arma::cube bmat)
 {
 
   int p = amat.n_slices -1;
@@ -117,14 +117,14 @@ arma::cube VARMA_auto(arma::mat param,int p, int q, int maxlag)
     {
       theta_cube.slice(i+1) = theta.cols(i*m,(i+1)*m-1);
     }
-    arma::cube prod_cube = polymul_mat(theta_cube,sigma_cube);
+    arma::cube prod_cube = polymul_matt(theta_cube,sigma_cube);
     theta_cube.slice(q) = idmat;
     for(int i = 0; i < q; i++)
     {
       arma::mat temp = theta.cols(i*m,(i+1)*m-1);
       theta_cube.slice(q-1-i) = temp.t();
     }
-    arma::cube out = polymul_mat(prod_cube,theta_cube);
+    arma::cube out = polymul_matt(prod_cube,theta_cube);
     gam_ma = out.slices(q,2*q);
   }
   arma::vec gamvec_ma = vectorise(gam_ma);
