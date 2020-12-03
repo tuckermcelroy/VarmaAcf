@@ -15,6 +15,8 @@ arma::cube polymul_matt(arma::cube amat,arma::cube bmat)
   int r = p+q;
   arma::cube bmat_pad(N,N,r+1);
   arma::cube cmat(N,N,r+1);
+  bmat_pad.fill(0);
+  cmat.fill(0);
   
   for(int i = 0; i < q+1; i++) 
   { 
