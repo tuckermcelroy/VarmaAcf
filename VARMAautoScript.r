@@ -13,7 +13,7 @@ source_url("https://raw.githubusercontent.com/tuckermcelroy/VarmaAcf/main/VARMAa
 source_url("https://raw.githubusercontent.com/tuckermcelroy/VarmaAcf/main/var2.pre2par.r")
  
 # set your directory and download cpp files
-setwd("C:\\Users\\neide\\OneDrive\\Documents\\Research\\SigExNew")
+setwd("C:\\Users\\neide\\Documents\\GitHub\\VarmaAcf")
 
 sourceCpp('VARMAauto.cpp')
 sourceCpp('autoVARMA.cpp')
